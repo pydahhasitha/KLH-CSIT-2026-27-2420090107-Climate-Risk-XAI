@@ -1,582 +1,233 @@
 # Explainable AI for Climate Change Prediction and Environmental Risk Analysis Using Big Data Analytics
 
+An Explainable AI (XAI)-driven Big Data Analytics framework for environmental disaster risk prediction that integrates historical climate data, extreme-weather records, air-quality information, machine learning, and real-time environmental observations.
+
 ## Team Members
 
-| Name       | ID Number  |
-| ---------- | ---------- |
+| Name | ID Number |
+|---|---|
 | L. Mrudani | 2420030591 |
 | Sri Kruthi | 2420090003 |
 | P. Hasitha | 2420090107 |
 
-## Supervisor
-
-**Dr. K. Swapnika**
-
----
+**Supervisor:** Dr. K. Swapnika
 
 ## Abstract
 
-Climate change produces large and complex datasets involving temperature, rainfall, greenhouse gases, sea levels, extreme weather events, and other environmental indicators. Existing AI and machine-learning models can provide accurate predictions, but many of them operate as black-box models, making it difficult to understand why a particular climate or environmental risk prediction was generated.
+Climate change generates large and complex datasets involving temperature, rainfall, humidity, wind speed, atmospheric pressure, solar radiation, air quality, and extreme weather events. Traditional machine-learning approaches may produce predictions without clearly explaining the environmental factors responsible for their results.
 
-Therefore, there is a need for a scalable Big Data Analytics and Explainable AI (XAI) framework that can predict climate-related risks while providing understandable explanations of the factors influencing those predictions.
+This project presents a completed Explainable AI-driven environmental disaster risk assessment framework that combines Big Data Analytics, machine learning, historical environmental evidence, real-time weather data, and Explainable AI. Three heterogeneous environmental datasets are processed and analyzed to identify important patterns and develop a model for disaster-risk classification.
 
-This project proposes a Multi-Source Climate Intelligence Framework that integrates weather, satellite, IoT, and historical disaster data using Big Data Analytics, Machine Learning, and Explainable AI for comprehensive environmental risk prediction. The system aims to provide clear, interactive, and data-driven insights that can support environmental monitoring, planning, and informed decision-making.
+The proposed framework uses a hybrid Logistic Regression–XGBoost model with Platt Scaling for probability calibration. It further integrates historical environmental risk scoring, a weighted risk-fusion mechanism, Mahalanobis-distance-based out-of-distribution detection, and SHAP-based explainability. An interactive Streamlit dashboard provides location-based environmental risk assessment, live weather and air-quality information, analytical visualizations, model evaluation, and interpretable prediction results.
 
----
+The final system demonstrates how machine-learning predictions and historical environmental evidence can be combined to support transparent, data-driven environmental monitoring and early-warning decision support.
 
 ## Problem Statement
 
-Climate change produces large and complex datasets involving temperature, rainfall, greenhouse gases, sea levels, extreme weather events, and other environmental indicators.
+Climate change creates complex environmental conditions that require the analysis of multiple datasets and environmental indicators. Although machine-learning models can identify patterns and predict risks, their predictions may be difficult to interpret without appropriate explainability techniques.
 
-Existing AI and machine-learning models can provide accurate predictions, but many operate as black-box models, making it difficult to understand why a particular climate or environmental risk prediction was generated.
-
-Therefore, there is a need for a scalable Big Data Analytics and Explainable AI framework that can predict climate-related risks while providing understandable explanations of the factors influencing those predictions.
-
----
+This project addresses the need for an integrated framework that processes environmental data, predicts disaster risks, incorporates historical evidence, analyzes live environmental conditions, and explains the factors influencing predictions.
 
 ## Project Objectives
 
-1. To develop an interactive data analytics dashboard for analysing climate and environmental data from multiple sources.
-2. To identify and visualize important climate and environmental trends, patterns, relationships, and risks through comprehensive data analysis.
-3. To use predictive analytics and Explainable AI techniques to identify environmental risk levels and the factors influencing them.
-4. To develop a Multi-Source Climate Intelligence Framework that integrates weather, satellite, IoT, and historical disaster data using Big Data Analytics, Machine Learning, and Explainable AI.
-5. To provide clear, interactive, and data-driven insights that can support environmental monitoring, planning, and informed decision-making.
-
----
-
-## Proposed Work and Uniqueness
-
-The proposed system:
-
-* Combines climate change prediction and environmental risk analysis in one system.
-* Uses multiple environmental and climate factors instead of focusing on a single hazard.
-* Integrates Big Data Analytics, Machine Learning, and Explainable AI (XAI).
-* Provides explanations for predictions, showing which factors contributed to the risk level.
-* Aims to provide risk classification and early-warning insights for real-world environmental decision-making.
-* Integrates multiple environmental data sources through a Multi-Source Climate Intelligence Framework.
-
----
-
-## System Architecture
-
-```text
-Climate & Environmental Data Sources
-              |
-              v
-      Data Collection
-              |
-              v
-    Data Cleaning & Integration
-              |
-              v
-      Big Data Processing
-        Spark / PySpark
-              |
-              v
-   Exploratory Data Analysis
-              |
-              v
-      ML / DL Models
-              |
-              v
-    Climate Risk Prediction
-              |
-              v
-     Risk Classification
-      Low / Medium / High
-              |
-              v
-        SHAP + LIME
-              |
-              v
- Feature Importance & Explanation
-              |
-              v
-   Environmental Risk Dashboard
-```
+- Integrate climate, extreme-weather, and air-quality datasets for comprehensive environmental analysis.
+- Perform data cleaning, missing-value handling, feature selection, and feature engineering.
+- Use Big Data Analytics and PySpark to support environmental data processing.
+- Develop and evaluate machine-learning models for disaster-risk classification.
+- Combine Logistic Regression and XGBoost into a hybrid prediction model.
+- Apply Platt Scaling to improve the reliability of predicted probabilities.
+- Incorporate historical environmental disaster evidence into risk assessment.
+- Detect unusual live observations using Mahalanobis-distance-based OOD detection.
+- Apply SHAP to explain model predictions and identify influential environmental factors.
+- Develop an interactive Streamlit dashboard integrating live environmental information, predictions, risk assessment, and explainability.
 
----
+## Dataset Description
 
-## Benchmark Datasets
+The project integrates three cleaned environmental datasets.
 
-The project uses a multi-source approach to collect climate and environmental information.
+| Dataset | Records | Columns | Purpose |
+|---|---:|---:|---|
+| Climate dataset | 2,425 | 13 | Historical climate analysis and machine-learning development |
+| Extreme-weather dataset | 49 | 23 | Extreme-weather and environmental context |
+| Air-quality dataset | 842,160 | 28 | Air-quality analysis, environmental context, and dashboard monitoring |
 
-### Dataset 1 – NASA EarthData
+The datasets are processed to support environmental analysis, feature engineering, model development, and dashboard visualization.
 
-**Source:** https://earthdata.nasa.gov/
+Air-quality variables are retained for environmental context and monitoring but are not included in the final eight-feature machine-learning model.
 
-**Purpose:**
+## Technologies Used
 
-* Land Surface Temperature
-* Vegetation Index (NDVI)
-* Soil Moisture
-* Wildfire Data
+- **Programming:** Python
+- **Big Data Processing:** Apache Spark, PySpark
+- **Data Analysis:** Pandas, NumPy
+- **Machine Learning:** Scikit-learn, Logistic Regression, XGBoost, Random Forest, Support Vector Machine
+- **Probability Calibration:** Platt Scaling
+- **Explainable AI:** SHAP
+- **Out-of-Distribution Detection:** Mahalanobis distance
+- **Visualization:** Matplotlib and Python visualization libraries
+- **Dashboard:** Streamlit
+- **Live Data Integration:** Weather and air-quality APIs
 
-### Dataset 2 – India Open Government Data (OGD)
+## Methodology
 
-**Source:** https://data.gov.in/
+The complete project follows these stages:
 
-**Contains:**
+1. **Data acquisition and integration:** Collect and process climate, extreme-weather, and air-quality datasets.
+2. **Data preprocessing:** Handle missing numerical values through median imputation, clean the datasets, select relevant features, and standardize inputs where required.
+3. **Feature engineering:** Generate cyclic sine and cosine features from the day of the year to represent seasonal patterns.
+4. **Exploratory Data Analysis:** Analyze environmental trends, relationships, distributions, and potential risk indicators.
+5. **Model development:** Train and evaluate multiple machine-learning algorithms, including Logistic Regression, XGBoost, Random Forest, and Support Vector Machine.
+6. **Hybrid model construction:** Combine Logistic Regression and XGBoost predictions at the probability level.
+7. **Probability calibration:** Apply Platt Scaling to improve the reliability of the hybrid model's probabilities.
+8. **Historical risk analysis:** Calculate environmental risk scores using disaster patterns in the historical dataset.
+9. **Risk fusion:** Combine calibrated machine-learning probabilities with historical environmental risk evidence.
+10. **OOD detection:** Identify unusual live observations using Mahalanobis distance.
+11. **Explainable AI:** Use SHAP to identify the environmental features contributing to predictions.
+12. **Dashboard integration:** Present environmental information, risk estimates, model performance, and explanations through an interactive Streamlit application.
 
-* Rainfall
-* Temperature
-* Forest Cover
-* Water Resources
-* Groundwater
-* Renewable Energy
+## Final Machine-Learning Model
 
-### Dataset 3 – India Meteorological Department (IMD)
+The final hybrid model combines Logistic Regression and XGBoost to estimate the probability of an environmental disaster.
 
-**Source:** https://mausam.imd.gov.in/
+The model uses eight predictors:
 
-**Contains:**
+| Feature | Description |
+|---|---|
+| `ALLSKY_SFC_SW_DWN` | Surface solar/shortwave radiation |
+| `T2M` | Temperature at 2 metres |
+| `RH2M` | Relative humidity at 2 metres |
+| `PS` | Surface pressure |
+| `WS2M` | Wind speed at 2 metres |
+| `PRECTOTCORR` | Corrected precipitation |
+| `DOY_SIN` | Sine-transformed day of year |
+| `DOY_COS` | Cosine-transformed day of year |
 
-* Daily Temperature
-* Rainfall
-* Humidity
-* Wind Speed
-* Cyclone Data
-* Heat Wave Records
+The target variable is `DISASTER`, formulated as a binary classification problem.
 
-### Dataset Integration
+The model development and evaluation process includes preprocessing, class balancing, feature standardization where required, probability calibration, and temporal evaluation.
 
-The collected datasets will be cleaned, integrated, preprocessed, and analysed to identify climate and environmental patterns and support environmental risk prediction.
+## Historical and Real-Time Risk Fusion
 
-The project combines information from:
+A major contribution of the project is the integration of machine-learning predictions with historical environmental evidence.
 
-```text
-NASA EarthData
-       +
-India Open Government Data
-       +
-India Meteorological Department
-       |
-       v
-Multi-Source Climate Dataset
-       |
-       v
-Data Cleaning & Integration
-       |
-       v
-Climate Risk Analysis
-```
+The final fusion equation is:
 
----
+`P_fusion = 0.25 × P_ML,calibrated + 0.75 × R_H`
 
-## Technologies and Tools
+Where:
 
-### Programming
+- `P_ML,calibrated` represents the calibrated probability from the hybrid machine-learning model.
+- `R_H` represents the historical environmental risk score.
+- `P_fusion` represents the final combined risk score.
 
-* Python
+The fusion weights are fixed at 25% for the calibrated machine-learning probability and 75% for historical environmental risk. The final fusion decision threshold is 0.43.
 
-### Data Processing
+This approach combines learned environmental patterns with historical disaster evidence to support risk assessment.
 
-* Pandas
-* NumPy
+## Explainable AI and OOD Detection
 
-### Machine Learning
+### SHAP-Based Explainability
 
-* Scikit-learn
-* Random Forest
-* XGBoost
-* LightGBM
-* CatBoost
+SHAP is integrated to explain model predictions by identifying the contributions of individual environmental features.
 
-### Deep Learning
+The explainability component helps users understand which climate variables influence the predicted risk, improving the transparency and interpretability of the system.
 
-* LSTM
-* Other suitable deep-learning models when required
+### Out-of-Distribution Detection
 
-### Big Data Processing
+Mahalanobis-distance-based OOD detection is used to assess whether live environmental observations resemble the distribution of the training data. This helps identify unusual observations that may require cautious interpretation.
 
-* Apache Spark
-* PySpark
+## Interactive Dashboard
 
-### Explainable AI
+The Streamlit dashboard integrates the completed analytical and predictive components into a single application.
 
-* SHAP
-* LIME
+Its implemented capabilities include:
 
-### Visualization and Dashboard
+- Location-based environmental risk assessment.
+- Live weather and air-quality data retrieval.
+- Calibrated machine-learning predictions.
+- Historical environmental risk scoring.
+- Machine-learning and historical-risk fusion.
+- Out-of-distribution detection.
+- Environmental data visualization and exploratory analysis.
+- Model comparison and performance evaluation.
+- SHAP-based explanations.
+- Risk assessment insights for environmental monitoring and decision support.
 
-* Streamlit
-* Power BI
-* Python visualization libraries
+## Results and Performance Evaluation
 
-### Development Environment
+The final fusion model was evaluated on an untouched 2025 test set containing 365 observations.
 
-* Local system
-* Google Colab
+| Evaluation Metric | Final Result |
+|---|---:|
+| Accuracy | 65.75% |
+| Precision | 41.57% |
+| Recall | 77.89% |
+| F1-score | 0.5421 |
+| Matthews Correlation Coefficient (MCC) | 0.3457 |
+| ROC-AUC | 0.7559 |
+| PR-AUC | 0.4428 |
+| Brier score | 0.1925 |
 
----
+The confusion matrix for the final fusion model is:
 
-# Project Plan
+| | Predicted Normal | Predicted Disaster |
+|---|---:|---:|
+| Actual Normal | 166 | 104 |
+| Actual Disaster | 21 | 74 |
 
-## Phase 1 – Literature Review
+The model detected 74 out of 95 disaster observations in the test set, achieving approximately 77.9% recall. This emphasizes the model's ability to identify a substantial proportion of disaster cases, while the number of false positives highlights the trade-off involved in early-warning applications.
 
-* Study 10–15 recent research papers.
-* Identify limitations and research gaps.
+The results demonstrate the potential of combining machine-learning predictions with historical environmental evidence. However, predictions are decision-support estimates and do not guarantee the occurrence or absence of a disaster.
 
-**Status:** Completed / Review-1
+## Key Contributions and Innovation
 
----
+- **Multi-source data integration:** Combines climate, extreme-weather, and air-quality information.
+- **Big Data Analytics:** Applies PySpark-based environmental data processing.
+- **Hybrid machine learning:** Integrates Logistic Regression and XGBoost.
+- **Probability calibration:** Uses Platt Scaling to improve probability reliability.
+- **Historical and real-time risk assessment:** Combines historical environmental patterns with live environmental observations.
+- **Weighted risk fusion:** Incorporates historical risk evidence into the final prediction.
+- **Explainable AI:** Uses SHAP to identify important factors influencing predictions.
+- **OOD detection:** Identifies live observations that differ from the training distribution.
+- **Interactive visualization:** Integrates analytical results, live data, risk estimates, and explanations in a Streamlit dashboard.
 
-## Phase 2 – Dataset Collection
+## Project Completion Status
 
-* Collect climate and environmental datasets.
-* Perform data cleaning and integration.
+**Overall Status: Completed**
 
-**Status:** Next Phase
+All planned project stages have been completed, including:
 
----
+- Literature review and research gap identification.
+- Environmental dataset collection and integration.
+- Data preprocessing and feature engineering.
+- Big Data processing and exploratory data analysis.
+- Machine-learning model development and evaluation.
+- Hybrid Logistic Regression–XGBoost model implementation.
+- Probability calibration using Platt Scaling.
+- Historical environmental risk scoring and risk fusion.
+- Mahalanobis-distance-based OOD detection.
+- SHAP-based explainability.
+- Live weather and air-quality API integration.
+- Streamlit dashboard development and integration.
+- Final model evaluation and project documentation.
 
-## Phase 3 – Big Data Processing
+## Conclusion
 
-* Perform preprocessing and exploratory analysis.
-* Use Spark/PySpark if required.
+This project presents an integrated Explainable AI-driven framework for climate prediction and environmental disaster risk assessment. By combining environmental datasets, Big Data Analytics, hybrid machine learning, probability calibration, historical risk evidence, OOD detection, and SHAP-based explainability, the system provides a more transparent approach to environmental risk assessment.
 
-**Status:** Planned
+The completed Streamlit dashboard connects live environmental observations with predictive analytics and interpretable insights. The final evaluation demonstrates the potential of the weighted fusion approach to identify disaster cases while incorporating historical environmental evidence.
 
----
+The framework can support environmental monitoring, risk analysis, and early-warning decision support, with further validation and broader data coverage offering opportunities for future improvement.
 
-## Phase 4 – Model Development
+## Team
 
-* Train multiple ML/DL models.
-* Compare prediction performance.
+**Batch 6 — Data Analytics and Visualization (24DSB3101)**
 
-**Status:** Planned
+- L. Mrudani
+- Sri Kruthi
+- P. Hasitha
 
----
-
-## Phase 5 – Explainable AI
-
-* Implement SHAP/LIME.
-* Identify important climate/environmental factors.
-
-**Status:** Planned
-
----
-
-## Phase 6 – Risk Analysis
-
-* Develop risk categories such as **Low, Medium, High**.
-* Analyze factors responsible for each risk.
-
-**Status:** Planned
-
----
-
-## Phase 7 – Visualization
-
-* Build a dashboard showing predictions, trends, risk levels and explanations.
-
-**Status:** Planned
-
----
-
-## Phase 8 – Evaluation & Documentation
-
-* Compare models.
-* Validate results.
-* Document findings and prepare research paper.
-
-**Status:** Planned
-
----
-
-## Project Phase Status
-
-| Phase   | Description                | Status                   |
-| ------- | -------------------------- | ------------------------ |
-| Phase 1 | Literature Review          | **Completed / Review-1** |
-| Phase 2 | Dataset Collection         | **Next Phase**           |
-| Phase 3 | Big Data Processing        | **Planned**              |
-| Phase 4 | Model Development          | **Planned**              |
-| Phase 5 | Explainable AI             | **Planned**              |
-| Phase 6 | Risk Analysis              | **Planned**              |
-| Phase 7 | Visualization              | **Planned**              |
-| Phase 8 | Evaluation & Documentation | **Planned**              |
-
----
-
-## Research Gap
-
-The project addresses the following research gaps:
-
-* Many climate prediction models focus primarily on prediction accuracy rather than interpretability.
-* Several AI-based climate models function as black boxes, making their decisions difficult for environmental researchers and policymakers to understand.
-* Existing studies often focus on one climate variable or one type of environmental risk rather than combining multiple factors.
-* Large-scale heterogeneous climate datasets create challenges in data processing and scalability.
-* XAI techniques are not consistently integrated with Big Data-based climate analytics.
-* Limited research combines climate prediction, environmental risk assessment, and explainability in a single framework.
-* Many studies evaluate models technically but provide limited explanation of which environmental factors drive the predicted risk.
-
----
-
-## Risk Analysis
-
-The system will classify environmental risks into categories such as:
-
-```text
-Low Risk
-Medium Risk
-High Risk
-```
-
-The system will also analyse the factors responsible for each predicted risk level.
-
-Explainable AI techniques such as SHAP and LIME will be used to identify important environmental and climate factors contributing to model predictions.
-
----
-
-## Explainable AI Workflow
-
-```text
-Input Climate Data
-       |
-       v
-Machine Learning Model
-       |
-       v
-Risk Prediction
-       |
-       v
-SHAP / LIME
-       |
-       v
-Feature Importance
-       |
-       v
-Explanation of Prediction
-       |
-       v
-Dashboard
-```
-
-The XAI component aims to make the prediction process more transparent and understandable by showing which climate and environmental factors influenced the predicted risk.
-
----
-
-## Dashboard
-
-The proposed interactive dashboard will display:
-
-* Climate trends
-* Environmental indicators
-* Risk predictions
-* Risk levels
-* Important contributing factors
-* XAI explanations
-* Environmental patterns
-* Analytical insights
-
-The dashboard may be implemented using Streamlit or Power BI.
-
----
-
-## Setup and Execution
-
-### 1. Clone the Repository
-
-```bash
-git clone <YOUR_GITHUB_REPOSITORY_URL>
-cd <YOUR_REPOSITORY_NAME>
-```
-
-### 2. Create a Virtual Environment
-
-```bash
-python -m venv venv
-```
-
-### 3. Activate the Virtual Environment
-
-For Windows:
-
-```bash
-venv\Scripts\activate
-```
-
-For Linux/macOS:
-
-```bash
-source venv/bin/activate
-```
-
-### 4. Install Dependencies
-
-If a `requirements.txt` file is available:
-
-```bash
-pip install -r requirements.txt
-```
-
-Otherwise, install the major project dependencies:
-
-```bash
-pip install pandas numpy scikit-learn xgboost lightgbm catboost shap lime matplotlib streamlit
-```
-
-For Big Data processing:
-
-```bash
-pip install pyspark
-```
-
-### 5. Add Datasets
-
-Place the downloaded datasets inside the appropriate directories:
-
-```text
-data/
-├── nasa_earthdata/
-├── india_ogd/
-├── imd/
-└── processed/
-```
-
-### 6. Perform Preprocessing
-
-Run the preprocessing scripts:
-
-```bash
-python <preprocessing_script>.py
-```
-
-### 7. Run the Machine Learning Models
-
-```bash
-python <model_script>.py
-```
-
-### 8. Run Explainable AI
-
-Run the XAI implementation for SHAP/LIME:
-
-```bash
-python <xai_script>.py
-```
-
-### 9. Run the Dashboard
-
-For Streamlit:
-
-```bash
-streamlit run app.py
-```
-
-If Power BI is used, load the processed dataset into Power BI and open the dashboard/report.
-
----
-
-## Repository Structure
-
-```text
-project-root/
-│
-├── README.md
-├── data/
-│   ├── nasa_earthdata/
-│   │   ├── land_surface_temperature/
-│   │   ├── ndvi/
-│   │   ├── soil_moisture/
-│   │   └── wildfire/
-│   │
-│   ├── india_ogd/
-│   │   ├── rainfall/
-│   │   ├── temperature/
-│   │   ├── forest_cover/
-│   │   ├── water_resources/
-│   │   ├── groundwater/
-│   │   └── renewable_energy/
-│   │
-│   ├── imd/
-│   │   ├── temperature/
-│   │   ├── rainfall/
-│   │   ├── humidity/
-│   │   ├── wind_speed/
-│   │   ├── cyclone/
-│   │   └── heat_wave/
-│   │
-│   └── processed/
-│
-├── notebooks/
-│   ├── data_analysis/
-│   ├── eda/
-│   └── experiments/
-│
-├── src/
-│   ├── preprocessing/
-│   ├── models/
-│   ├── xai/
-│   └── risk_analysis/
-│
-├── dashboard/
-├── results/
-├── docs/
-├── requirements.txt
-└── app.py
-```
-
----
-
-## Literature Review
-
-The literature review focuses on the following areas:
-
-* Climate Prediction using AI/ML
-* Big Data for Environmental Analysis
-* Explainable AI (XAI)
-* Environmental Risk Prediction
-* Extreme Weather Prediction
-* Flood Risk Prediction
-* Wildfire Severity Prediction
-* Climate Time-Series Forecasting
-* IoT and Remote Sensing for Climate Applications
-
-The literature review identifies the limitation that many existing approaches focus on prediction accuracy while providing limited interpretability and limited integration of climate prediction, environmental risk assessment, Big Data Analytics, and Explainable AI.
-
----
-
-## References
-
-The project review includes research related to:
-
-1. Comparative Analysis of Various Machine Learning Models That Aim at Analyzing Climate Change and Extreme Weather Patterns.
-2. Prediction of Flooding Due to Heavy Rainfall in India Using Machine Learning Algorithms: Providing Advanced Warning.
-3. Predicting and Mapping Flood Susceptibility: Leveraging Explainable AI and GIS Techniques.
-4. Flood Risk Assessment and Interpretation Using Explainable AI.
-5. Explainability of Machine Learning Models for Hydrological Time Series Forecasting: The Case of Neuro-Fuzzy Approaches.
-6. Maximizing Prediction Accuracy in Wildfire Severity: A Comprehensive Analysis of Machine Learning Models Using Environmental Features.
-7. Flood Forecasting with Classical and Quantum Machine Learning Models: A Comparative Analysis.
-8. Federated Learning-Based Flood Forecasting Model Enhancing Predictive Accuracy and Privacy in Flood Prediction.
-9. Flood Prediction and Adaptive Farming Solutions Using IoT, Machine Learning, and Remote Sensing for Climate-Resilient Agriculture.
-10. AI and Climate Protection: Research Gaps and Needs to Align Machine Learning with Greenhouse Gas Reductions.
-
----
-
-## Current Project Status
-
-**Current Phase:** Phase 1 – Literature Review / Review-1
-
-### Completed
-
-* Problem statement
-* Project objectives
-* Initial literature review
-* Research gap identification
-* Proposed work and uniqueness
-* Initial system architecture
-* Benchmark dataset identification
-* Project phase planning
-
-### Next Step
-
-**Phase 2 – Dataset Collection**
-
-The next stage will focus on collecting the NASA EarthData, India Open Government Data, and IMD datasets, followed by data cleaning and integration.
-
----
+**Supervisor:** Dr. K. Swapnika
 
 ## License
 
